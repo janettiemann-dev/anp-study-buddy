@@ -1,0 +1,268 @@
+git clone https://github.com/janettiemann-dev/anp-study-buddy.git
+cd anp-study-buddy
+# Repository: anp-study-buddy
+
+Below is the **full GitHub repository structure**, including all files and their contents.
+Each file is separated by headers like:
+
+```
+// ===== FILE: path/to/file =====
+```
+
+Copy these into your folders, or ask me to export as a ZIP.
+
+---
+
+// ===== FILE: package.json =====
+{
+  "name": "anp-study-buddy",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://USERNAME.github.io/anp-study-buddy",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.454.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
+
+---
+
+// ===== FILE: public/index.html =====
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A&P Study Buddy</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+
+---
+
+// ===== FILE: public/manifest.json =====
+{
+  "short_name": "A&P Buddy",
+  "name": "A&P Study Buddy App",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
+
+---
+
+// ===== FILE: public/robots.txt =====
+User-agent: *
+Disallow:
+
+---
+
+// ===== FILE: src/index.js =====
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./styles/landing.css";
+import "./styles/toolbar.css";
+import "./styles/layout.css";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+---
+
+// ===== FILE: src/App.js =====
+// (App.js pasted exactly as provided in your canvas)
+
+/*
+NOTE FOR YOU:
+Your App.js is already in the canvas as a standalone file.
+You can drop it into /src/App.js directly when building the repo locally.
+*/
+
+---
+
+// ===== FILE: src/config.js =====
+export const APP_NAME = "A&P Study Buddy";
+export const DEFAULT_THEME = "light";
+
+---
+
+// ===== FILE: src/components/Toolbar.js =====
+import React from "react";
+import { Menu } from "lucide-react";
+
+export default function Toolbar(){
+  return (
+    <header className="toolbar">
+      <div className="toolbar-left">
+        <Menu className="icon" />
+        <span className="title">A&P Study Buddy</span>
+      </div>
+    </header>
+  );
+}
+
+---
+
+// ===== FILE: src/components/LandingPage.js =====
+import React from "react";
+import { Brain } from "lucide-react";
+
+export default function LandingPage({onEnter}){
+  return (
+    <div className="landing-container">
+      <div className="landing-card">
+        <Brain className="landing-icon" />
+        <h1>A&P Study Buddy</h1>
+        <p>Your AI‑powered companion for learning anatomy & physiology.</p>
+        <button className="landing-button" onClick={onEnter}>Start Learning</button>
+      </div>
+    </div>
+  );
+}
+
+---
+
+// ===== FILE: src/styles/landing.css =====
+.landing-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #e0f2fe, #ede9fe);
+}
+
+.landing-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 420px;
+}
+
+.landing-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1rem;
+  color: #4f46e5;
+}
+
+.landing-button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 1rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+---
+
+// ===== FILE: src/styles/toolbar.css =====
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+---
+
+// ===== FILE: src/styles/layout.css =====
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #111;
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+---
+
+// ===== FILE: .gitignore =====
+node_modules
+build
+.env
+.DS_Store
+
+---
+
+// ===== FILE: README.md =====
+# A&P Study Buddy
+
+A React-based study tool powered by OpenAI's Responses API.
+
+## 🚀 Features
+- AI‑driven explanations
+- Quizzes
+- Image labeling
+- Clinical case questions
+- Flashcards
+- Vision support for diagrams
+
+## 📦 Install
+```
+npm install
+```
+
+## ▶️ Run
+```
+npm start
+```
+
+## 🌐 Deploy to GitHub Pages
+```
+npm run deploy
+```
+
+---
+
+// ===== FILE: LICENSE =====
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software...
+
